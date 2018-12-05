@@ -29,6 +29,9 @@ spec:
         app: goldengoose
         track: prod
     spec:
+      resources:
+        requests:
+          cpu: 100m
       affinity:
         nodeAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
