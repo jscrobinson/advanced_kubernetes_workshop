@@ -29,8 +29,16 @@ spec:
         app: goldengoose
         track: prod
     spec:
-      nodeSelector:
-        app: goldengoose
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 1
+            preference:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - goldengoose
       containers:
       - name: goldengoose
         image: dippynark/goldengoose
